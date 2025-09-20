@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>BÁN HÀNG</title>
+  <link rel="stylesheet" href="bt6.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .tab {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .tab button {
+      padding: 8px 16px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+    .tab button.active {
+      background: #4285f4;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .chart-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>BÁN HÀNG</h1>
+
+  <div class="tab">
+    <button class="tablink active" onclick="openTab(event,'chart1')">Q1</button>
+    <button class="tablink" onclick="openTab(event,'chart2')">Q2</button>
+    <button class="tablink" onclick="openTab(event,'chart3')">Q3</button>
+    <button class="tablink" onclick="openTab(event,'chart4')">Q4</button>
+    <button class="tablink" onclick="openTab(event,'chart5')">Q5</button>
+    <button class="tablink" onclick="openTab(event,'chart6')">Q6</button>
+    <button class="tablink" onclick="openTab(event,'chart7')">Q7</button>
+    <button class="tablink" onclick="openTab(event,'chart8')">Q8</button>
+    <button class="tablink" onclick="openTab(event,'chart9')">Q9</button>
+    <button class="tablink" onclick="openTab(event,'chart10')">Q10</button>
+    <button class="tablink" onclick="openTab(event,'chart11')">Q11</button>
+    <button class="tablink" onclick="openTab(event,'chart12')">Q12</button>
+  </div>
+
+  <!-- Mỗi Q một chart riêng -->
+  <div id="chart1" class="tab-content active"><div class="chart-title">Doanh số bán hàng theo Mặt hàng</div><div id="chart1-container"></div></div>
+  <div id="chart2" class="tab-content"><div class="chart-title">Doanh số bán theo Nhóm hàng</div><div id="chart2-container"></div></div>
+  <div id="chart3" class="tab-content"><div class="chart-title">Doanh số bán theo Tháng</div><div id="chart3-container"></div></div>
+  <div id="chart4" class="tab-content"><div class="chart-title">Doanh số bán trung bình theo Ngày trong tuần</div><div id="chart4-container"></div></div>
+  <div id="chart5" class="tab-content"><div class="chart-title">Doanh số bán trung bình theo Ngày trong tháng</div><div id="chart5-container"></div></div>
+  <div id="chart6" class="tab-content"><div class="chart-title">Doanh số bán trung bình theo Khung giờ</div><div id="chart6-container"></div></div>
+  <div id="chart7" class="tab-content"><div class="chart-title">Xác suất bán theo Nhóm hàng</div><div id="chart7-container"></div></div>
+  <div id="chart8" class="tab-content"><div class="chart-title">Xác suất bán hàng của Nhóm hàng theo Tháng</div><div id="chart8-container"></div></div>
+  <div id="chart9" class="tab-content"><div class="chart-title">Xác suất bán hàng của Mặt hàng theo Nhóm</div><div id="chart9-container"></div></div>
+  <div id="chart10" class="tab-content"><div class="chart-title">Xác suất bán hàng của Mặt hàng theo Nhóm hàng theo từng Tháng</div><div id="chart10-container"></div></div>
+  <div id="chart11" class="tab-content"><div class="chart-title">Phân phối Lượt mua hàng</div><div id="chart11-container"></div></div>
+  <div id="chart12" class="tab-content"><div class="chart-title">Phân phối Mức chi trả của khách hàng</div><div id="chart12-container"></div></div>
+
+  <script>
+    function openTab(evt, chartId) {
+      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+      document.querySelectorAll(".tablink").forEach(b => b.classList.remove("active"));
+      document.getElementById(chartId).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+  <!-- Gọi JS -->
+  <script src="bt6.js"></script>
+  <script src="bt6_2.js"></script>
+  <script src="bt6_3.js"></script>
+  <script src="bt6_4.js"></script>
+  <script src="bt6_5.js"></script>
+  <script src="bt6_6.js"></script>
+  <script src="bt6_7.js"></script>
+  <script>
+  function openTab(evt, chartId) {
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    document.querySelectorAll(".tablink").forEach(b => b.classList.remove("active"));
+    document.getElementById(chartId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+
+    if(chartId === "chart7") drawChart7();  // Vẽ chart 7 khi mở tab
+  }
+  </script>
+  <script src="bt6_8.js"></script>
+  <script src="bt6_9.js"></script>
+  <script src="bt6_10.js"></script>
+  <script src="bt6_11.js"></script>
+  <script src="bt6_12.js"></script>
+</body>
+</html>
